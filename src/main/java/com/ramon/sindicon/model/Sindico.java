@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.ramon.sindicon.dto.SindicoDto;
+
 import lombok.Data;
 
 @Data
@@ -23,4 +25,18 @@ public class Sindico {
     private String numero;
     private String bairro;
     private String cidade;
+
+    public static Sindico converter(SindicoDto sindicoDto){
+        Sindico sindico = new Sindico();
+        sindico.setId(sindicoDto.getId());
+        sindico.setNome(sindicoDto.getNome());
+        sindico.setNomeEdificio(sindicoDto.getNomeEdificio());
+        sindico.setTelefone(sindicoDto.getTelefone());
+        sindico.setEmail(sindicoDto.getEmail());
+        sindico.setLogradouro(sindicoDto.getLogradouro());
+        sindico.setNumero(sindicoDto.getNumero());
+        sindico.setBairro(sindicoDto.getBairro());
+        sindico.setCidade(sindicoDto.getCidade());
+        return sindico;
+    }
 }

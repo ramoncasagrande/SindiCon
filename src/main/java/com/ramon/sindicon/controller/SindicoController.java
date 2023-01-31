@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ramon.sindicon.model.Sindico;
+import com.ramon.sindicon.dto.SindicoDto;
 import com.ramon.sindicon.service.SindicoService;
 
 @RestController
@@ -26,20 +26,20 @@ public class SindicoController {
     private SindicoService sindicoService;
 
     @GetMapping
-    public List<Sindico> listarTodos() {
+    public List<SindicoDto> listarTodos() {
         return sindicoService.listar();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Sindico adicionarNovo(@RequestBody Sindico sindico) {
-        return sindicoService.salvar(sindico);
+    public SindicoDto adicionarNovo(@RequestBody SindicoDto sindicoDto) {
+        return sindicoService.salvar(sindicoDto);
     }
 
     @PutMapping
-    public ResponseEntity<Sindico> atualizarSindico(@RequestBody Sindico sindico) {
-        sindico = sindicoService.salvar(sindico);
-        return ResponseEntity.ok(sindico);
+    public ResponseEntity<SindicoDto> atualizarSindico(@RequestBody SindicoDto sindicoDto) {
+        sindicoDto = sindicoService.salvar(sindicoDto);
+        return ResponseEntity.ok(sindicoDto);
     }
 
     @DeleteMapping("/{id}")
