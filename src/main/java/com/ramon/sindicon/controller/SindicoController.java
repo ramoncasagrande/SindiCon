@@ -44,6 +44,9 @@ public class SindicoController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarSindico(@PathVariable Long id) {
+        if(!sindicoService.verificaId(id)){
+            return ResponseEntity.notFound().build();
+        }
         sindicoService.deletar(id);
         return ResponseEntity.noContent().build();
     }

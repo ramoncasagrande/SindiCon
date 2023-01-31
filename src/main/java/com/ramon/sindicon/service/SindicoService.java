@@ -33,4 +33,8 @@ public class SindicoService {
         sindicoRepository.deleteById(id);
     }
 
+    public boolean verificaId(Long id){
+        return sindicoRepository.existsById(id);
+    }
+
 }
