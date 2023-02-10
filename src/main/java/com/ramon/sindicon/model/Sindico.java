@@ -25,6 +25,7 @@ public class Sindico {
     private String numero;
     private String bairro;
     private String cidade;
+    private String imagemUrl;
 
     public static Sindico converter(SindicoDto sindicoDto){
         Sindico sindico = new Sindico();
@@ -37,6 +38,7 @@ public class Sindico {
         sindico.setNumero(sindicoDto.getNumero());
         sindico.setBairro(sindicoDto.getBairro());
         sindico.setCidade(sindicoDto.getCidade());
+        sindico.setImagemUrl(sindicoDto.getImagemUrl());
         return sindico;
     }
 }
